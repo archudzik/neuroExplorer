@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<head></head>
+<meta charset="utf-8" />
+<title>WebSocket Test</title>
+<script src="http://notmasteryet.github.io/jpgjs/jpg.js"></script>
+</head>
+
+<body>
+    <h2>WebSocket Test</h2>
+
+    <p id="fps"></p>
+    <p id="output"></p>
+    <p><img id="image"></p>
+    <p><canvas id="canvas"></p>
+
+    <script language="javascript" type="text/javascript">
+        var wsUri = "ws://127.0.0.1:7654/openface";
+        var parser = new JpegDecoder();
+        var socket = new WebSocket(wsUri);
+        var canvas = document.getElementById('canvas');
+        socket.binaryType = 'arraybuffer';
+        var facePoints = [];
+        var frameDiff = 0;
+        var frameDiffLimit = 10;
+
+        try {
+
+            socket.onopen = function () {
+                document.getElementById('output').style.backgroundColor = '#40ff40';
+                document.getElementById('output').textContent = 'Connection opened';
+            }
+
+            socket.onmessage = function (msg) {
+                if (typeof msg.data == 'object') {
+                    var arrayBuffer = msg.data;
+                    var bytes = new Uint8Array(arrayBuffer);
+
+                    parser.parse(bytes);
+                    var width = parser.width;
+                    var height = parser.height;
+                    var numComponents = parser.numComponents;
+                    var decoded = parser.getData(width, height);
+
+                    canvas.width = width;
+                    canvas.height = height;
+                    var ctx = canvas.getContext('2d');
+                    var imageData = ctx.createImageData(width, height);
+                    var imageBytes = imageData.data;
+                    for (var i = 0, j = 0, ii = width * height * 4; i < ii;) {
+                        imageBytes[i++] = decoded[j++];
+                        imageBytes[i++] = numComponents === 3 ? decoded[j++] : decoded[j - 1];
+                        imageBytes[i++] = numComponents === 3 ? decoded[j++] : decoded[j - 1];
+                        imageBytes[i++] = 255;
+                    }
+                    ctx.putImageData(imageData, 0, 0);
+                    frameDiff++;
+
+                    if(frameDiff > frameDiffLimit){
+                        return;    
+                    }
+
+                    ctx.strokeStyle = "rgba(255,255,255,.3)";
+                    ctx.fillStyle = "rgba(255,255,255,.6)";
+                    var pointsLength = overlayPoints.length;
+                    for (var j = 0; j < pointsLength; j++) {
+                        ctx.beginPath();
+                        ctx.arc(overlayPoints[j].x, overlayPoints[j].y, 1, 0, 2 * Math.PI);
+                        ctx.stroke();
+                        var next = j + 1;
+                        if(j == 16 || j == 21 || j == 26){
+                            continue;
+                        }
+                        if(j == 35){
+                            next = 30;
+                        }
+                        if(j == 41){
+                            next = 36;
+                        }
+                        if(j == 47){
+                            next = 42;
+                        }
+                        if(j == 67){
+                            next = 60;
+                        }
+                        if(next < pointsLength){
+                            ctx.lineTo(overlayPoints[next].x, overlayPoints[next].y);
+                            ctx.stroke();
+                        }
+                        //ctx.fill();
+                        ctx.closePath();
+                    }
+
+                } else {
+                    var jData = JSON.parse(msg.data);
+                    overlayPoints = jData.overlayPoints;
+                    frameDiff = 0;
+                    //document.getElementById('output').textContent = msg.data;
+                }
+            }
+
+            socket.onclose = function () {
+                document.getElementById('output').style.backgroundColor = '#ff4040';
+                document.getElementById('output').textContent = 'Connection closed';
+            }
+        } catch (exception) {
+            alert('Error:' + exception);
+        }
+
+    </script>
+</body>
+
+</html>

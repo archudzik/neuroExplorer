@@ -1,0 +1,100 @@
+html,
+body {
+    background: #000;
+    font-family: 'Open Sans';
+    padding: 0;
+    overflow: hidden;
+}
+
+.fullscreen {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.fullscreen video {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.fullscreen img,
+.fullscreen .obj {
+    display: block;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.screen-idle .path {
+    stroke: #41E0D5;
+    fill: #41E0D5;
+    fill-opacity: 0;
+}
+
+.screen-idle .draw {
+    stroke-dasharray: 4900;
+    stroke-dashoffset: 4900;
+    animation: anim1 1.5s ease-in 1s forwards, anim4 1s ease-in 2s forwards;
+}
+
+.screen-idle .lines-circles {
+    transform-origin: center center;
+    animation: anim1 1.5s ease-in 1s forwards, anim4 1s ease-in 2s forwards, anim5 16s linear 1s infinite;
+}
+
+@keyframes anim1 {
+    0% {
+        stroke-dashoffset: 4900;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes anim2 {
+    0% {
+        stroke-dashoffset: 680;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes anim3 {
+    0% {
+        stroke-dashoffset: 910;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes anim4 {
+    0% {
+        fill-opacity: 0;
+    }
+    100% {
+        fill-opacity: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes anim5 {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .1;
+    }
+    100% {
+        opacity: 1;
+    }
+}

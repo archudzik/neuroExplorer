@@ -1,0 +1,107 @@
+lib/local/LandmarkDetector/model/patch_experts/cen_patches_*.dat
+
+matlab_version/experiments_menpo/out_semifrontal/
+/x64/Release/
+/x64/Debug/
+matlab_version/pdm_generation/menpo_pdm/old_models/
+matlab_version/experiments_menpo/out_profile/
+matlab_version/experiments_menpo/menpo_fit_ceclm_test_profile/
+matlab_version/experiments_menpo/menpo_challenge_helpers/out_semifrontal/
+matlab_version/experiments_menpo/menpo_challenge_helpers/out_profile/
+matlab_version/experiments_300VW/CLNF_res_general/
+matlab_version/experiments_300VW/CLM_res/
+matlab_version/experiments_300VW/CECLM_res_validation/
+matlab_version/experiments_300VW/CECLM_res_menpo/
+matlab_version/experiments_300VW/CECLM_res_general/
+matlab_runners/out_UvA_NEMO/
+matlab_runners/Head Pose Experiments/experiments/
+matlab_runners/Feature Point Experiments/yt_features_ceclm/
+lib/local/LandmarkDetector/Release/
+lib/local/LandmarkDetector/x64/
+lib/local/LandmarkDetector/Debug/
+lib/local/GazeAnalyser/Debug/
+lib/local/FaceAnalyser/x64/
+lib/local/GazeAnalyser/x64/
+lib/3rdParty/dlib/x64/
+lib/local/FaceAnalyser/Debug/
+lib/3rdParty/dlib/Release/
+lib/3rdParty/dlib/Debug/
+*.ipch
+exe/Recording/x64/
+exe/Recording/Debug/
+exe/FeatureExtraction/x64/
+exe/FeatureExtraction/Debug/
+exe/FaceLandmarkVidMulti/x64/
+exe/FaceLandmarkVidMulti/Debug/
+lib/local/FaceAnalyser/Release/
+exe/FaceLandmarkVid/Release/
+exe/FaceLandmarkImg/x64/
+exe/FaceLandmarkVid/Debug/
+exe/FaceLandmarkVid/x64/
+exe/FaceLandmarkImg/Debug/
+OpenFace.sdf
+OpenFace.VC.opendb
+matlab_runners/Feature Point Experiments/out_ceclm/
+matlab_runners/Feature Point Experiments/out_clnf/
+matlab_runners/Feature Point Experiments/out_svr/
+exe/FaceLandmarkImg/Release/
+exe/FaceLandmarkVidMulti/Release/
+exe/FeatureExtraction/Release/
+exe/Recording/Release/
+lib/local/GazeAnalyser/Release/
+exe/FaceLandmarkImg/menpo_out/
+/Release/
+/Debug/
+matlab_runners/Demos/demo_img/
+matlab_runners/Demos/demo_vid/
+matlab_runners/Demos/output_features_seq/
+matlab_runners/Demos/output_features_vid/
+exe/FeatureExtraction/experiments/
+matlab_runners/Feature Point Experiments/300VW_features/ceclm/
+matlab_runners/Feature Point Experiments/300VW_features/clnf/
+matlab_runners/Feature Point Experiments/yt_features_clm/
+matlab_runners/Feature Point Experiments/yt_features_clnf/
+matlab_runners/Action Unit Experiments/out_DISFA/
+matlab_runners/Action Unit Experiments/out_fera/
+matlab_runners/Action Unit Experiments/out_SEMAINE/
+matlab_runners/Gaze Experiments/mpii_out/
+*.vspx
+matlab_version/AU_training/experiments/full_model_training/mat_models_o/
+lib/local/Utilities/x64/Release/
+lib/local/Utilities/x64/
+exe/FaceLandmarkImg/processed/
+matlab_runners/Demos/processed_features/
+matlab_runners/Feature Point Experiments/yt_res/
+matlab_runners/Feature Point Experiments/300W_experiments/
+gui/OpenFaceOffline/obj/Release/
+lib/local/CppInerop/x64/
+gui/OpenFaceOffline/obj/Debug/
+gui/HeadPose-live/obj/x86/
+gui/OpenFaceDemo/obj/Debug/
+gui/OpenFaceDemo/obj/Release/
+gui/HeadPose-live/obj/Release/
+gui/HeadPose-live/obj/Debug/
+lib/3rdParty/CameraEnumerator/x64/
+matlab_runners/Action Unit Experiments/out_bosph/
+matlab_runners/Action Unit Experiments/out_bp4d/
+matlab_runners/Feature Point Experiments/300VW_experiment/
+gui/OpenFaceOffline/obj/
+gui/OpenFaceDemo/obj/
+exe/FeatureExtraction/processed/
+exe/FaceLandmarkVidMulti/processed/
+lib/3rdParty/CameraEnumerator/Release/
+lib/local/CppInerop/Release/
+lib/local/Utilities/Release/
+matlab_runners/Demos/processed/
+exe/releases/OpenFace_*
+*.suo
+.vs/OpenFace/v15/
+/build/
+matlab_runners/Action Unit Experiments/AU_predictions/
+lib/local/Utilities/Debug/
+lib/3rdParty/CameraEnumerator/Debug/
+lib/local/CppInerop/Debug/
+*.user
+
+# IDE-generated folders
+.idea

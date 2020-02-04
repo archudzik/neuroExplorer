@@ -1,0 +1,898 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B2C556DE-7451-497A-9752-08FB488BD200}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>NeuroExplorer</RootNamespace>
+    <AssemblyName>NeuroExplorer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>..\OpenFace\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>..\Build\x64\Release\NeuroExplorer\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\iconfinder_mind_564034.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DeltaCompressionDotNet, Version=2.0.0.0, Culture=neutral, PublicKeyToken=1d14d6e5194e7f4a, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\DeltaCompressionDotNet.2.0.0.0\lib\net20\DeltaCompressionDotNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EyeTribe.ClientSdk">
+      <HintPath>..\TetCsharp\sdk\bin\v4.5\Release\EyeTribe.ClientSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="EyeTribe.Controls">
+      <HintPath>..\TetCsharpWpfControls\controls-sdk\bin\Release\net45\EyeTribe.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="EyeXFramework, Version=1.8.503.0, Culture=neutral, PublicKeyToken=70326046dcdce6cb, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\Tobii.EyeX.Framework.1.8.503\lib\net40\EyeXFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fleck, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\Fleck.1.1.0\lib\net45\Fleck.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GoIOdotNET, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\GoIO.SDK.1.0.6\lib\net20\GoIOdotNET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LeapCSharp.NET4.5">
+      <HintPath>..\Leap\LeapSDK\lib\LeapCSharp.NET4.5.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1345, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\MaterialDesignThemes.2.5.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\WindowsAPICodePack-Core.1.1.2\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil, Version=0.10.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\Mono.Cecil.0.10.4\lib\net40\Mono.Cecil.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb, Version=0.10.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\Mono.Cecil.0.10.4\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb, Version=0.10.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\Mono.Cecil.0.10.4\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks, Version=0.10.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\Mono.Cecil.0.10.4\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NAudio, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\NAudio.1.9.0\lib\net35\NAudio.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NAudio.Lame, Version=1.0.9.26885, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\NAudio.Lame.1.0.9\lib\net40\NAudio.Lame.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpCompress, Version=0.23.0.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\SharpCompress.0.23.0\lib\net45\SharpCompress.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpOSC">
+      <HintPath>..\SharpOSC\v0.1.1.0\Release\SharpOSC.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\Splat.8.0.1\lib\net461\Splat.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\System.Drawing.Primitives.4.3.0\lib\net45\System.Drawing.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Management.Instrumentation" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Tobii.EyeX.Client.Net20, Version=1.8.504.0, Culture=neutral, PublicKeyToken=70326046dcdce6cb, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\Tobii.EyeX.Client.1.8.504\lib\net20\Tobii.EyeX.Client.Net20.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="VSTCoreDefsdotNET, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\OpenFace\packages\GoIO.SDK.1.0.6\lib\net20\VSTCoreDefsdotNET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Connectors\Dynamometer\VernierConnector.cs" />
+    <Compile Include="Connectors\EEG\Muse\MuseNetConnector.cs" />
+    <Compile Include="Connectors\EEG\Muse\MuseOscConnector.cs" />
+    <Compile Include="Connectors\EEG\Muse\UI\MuseSelection.xaml.cs">
+      <DependentUpon>MuseSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Connectors\EEG\NeuroSky\NativeThinkgear64.cs" />
+    <Compile Include="Connectors\EEG\NeuroSky\NeuroSkyConnector.cs" />
+    <Compile Include="Connectors\EyeTracker\EyeTribeConnector.cs" />
+    <Compile Include="Connectors\EyeTracker\UI\EyeTribeUI.xaml.cs">
+      <DependentUpon>EyeTribeUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Connectors\GalvanicSkinResponse\ThoughtstreamConnector.cs" />
+    <Compile Include="Connectors\Microphone\Helpers\FftEventArgs.cs" />
+    <Compile Include="Connectors\Microphone\Helpers\MaxSampleEventArgs.cs" />
+    <Compile Include="Connectors\Microphone\MicrophoneConnector.cs" />
+    <Compile Include="Connectors\Microphone\Helpers\SampleAggregator.cs" />
+    <Compile Include="Connectors\Microphone\UI\MicrophoneSelection.xaml.cs">
+      <DependentUpon>MicrophoneSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Connectors\OpenFace\FpsTracker.cs" />
+    <Compile Include="Connectors\OpenFace\UI\CameraItem.xaml.cs">
+      <DependentUpon>CameraItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Connectors\OpenFace\UI\CameraParametersEntry.xaml.cs">
+      <DependentUpon>CameraParametersEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Connectors\OpenFace\UI\CameraSelection.xaml.cs">
+      <DependentUpon>CameraSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Connectors\OpenFace\UI\OverlayImage.xaml.cs">
+      <DependentUpon>OverlayImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Connectors\OpenFace\UI\SimpleImage.xaml.cs">
+      <DependentUpon>SimpleImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Connectors\PulseOximetry\Cms50eConnector.cs" />
+    <Compile Include="Connectors\PulseOximetry\Cms50ewConnector.cs" />
+    <Compile Include="Const.cs" />
+    <Compile Include="MainController\NeuroController.cs" />
+    <Compile Include="Helpers\AsyncStreamReader.cs" />
+    <Compile Include="Helpers\MetroManager.cs" />
+    <Compile Include="Helpers\SerialPortWrapper\SerialDataEventArgs.cs" />
+    <Compile Include="Helpers\SerialPortWrapper\SerialPortController.cs" />
+    <Compile Include="Helpers\SerialPortWrapper\SerialPortSettings.cs" />
+    <Compile Include="WebSocket\IWebSocketPropagator.cs" />
+    <Compile Include="WebSocket\WebSocketConnector.cs" />
+    <Compile Include="LogWriter\LogStreamer.cs" />
+    <Page Include="Connectors\EEG\Muse\UI\MuseSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Connectors\EyeTracker\UI\EyeTribeUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Connectors\Microphone\UI\MicrophoneSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Connectors\OpenFace\UI\CameraItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Connectors\OpenFace\UI\CameraParametersEntry.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Connectors\OpenFace\UI\CameraSelection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Connectors\OpenFace\UI\OverlayImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Connectors\OpenFace\UI\SimpleImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Connectors\LeapMotion\LeapMotionConnector.cs" />
+    <Compile Include="Connectors\LeapMotion\LeapMotionData.cs" />
+    <Compile Include="Connectors\OpenFace\OpenFaceConnector.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="Connectors\EyeTracker\EyeTribeServer\License.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Layout\assets\css\style.css.map" />
+    <None Include="Layout\assets\fonts\icomoon\icomoon.eot" />
+    <None Include="packages.config" />
+    <None Include="Uwp\Windows.winmd" />
+    <Resource Include="Layout\assets\fonts\icomoon\icomoon.ttf" />
+    <None Include="Layout\assets\fonts\icomoon\icomoon.woff" />
+    <None Include="Layout\assets\fonts\open-sans-v15-latin-ext_latin-300.woff" />
+    <None Include="Layout\assets\fonts\open-sans-v15-latin-ext_latin-300.woff2" />
+    <None Include="Layout\assets\fonts\open-sans-v15-latin-ext_latin-600.woff" />
+    <None Include="Layout\assets\fonts\open-sans-v15-latin-ext_latin-600.woff2" />
+    <None Include="Layout\assets\fonts\open-sans-v15-latin-ext_latin-700.woff" />
+    <None Include="Layout\assets\fonts\open-sans-v15-latin-ext_latin-700.woff2" />
+    <None Include="Layout\assets\fonts\open-sans-v15-latin-ext_latin-800.woff" />
+    <None Include="Layout\assets\fonts\open-sans-v15-latin-ext_latin-800.woff2" />
+    <None Include="Layout\assets\fonts\open-sans-v15-latin-ext_latin-regular.woff" />
+    <None Include="Layout\assets\fonts\open-sans-v15-latin-ext_latin-regular.woff2" />
+    <None Include="Layout\assets\fonts\themify-icons\fonts\themify.eot" />
+    <Resource Include="Layout\assets\fonts\themify-icons\fonts\themify.ttf" />
+    <None Include="Layout\assets\fonts\themify-icons\fonts\themify.woff" />
+    <None Include="Layout\assets\fonts\themify-icons\Themify IconFonts 5-23-2014.json" />
+    <None Include="Layout\assets\js\lib\videoframe\README.md" />
+    <None Include="Layout\assets\package-lock.json" />
+    <None Include="Layout\assets\package.json" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\3rdParty\Muse.Net\Muse.net\Muse.Net.csproj">
+      <Project>{4d257abc-85a9-43ff-a326-a31386178dd9}</Project>
+      <Name>Muse.Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenFace\lib\local\CppInerop\CppInerop.vcxproj">
+      <Project>{78196985-ee54-411f-822b-5a23edf80642}</Project>
+      <Name>CppInerop</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\iconfinder_mind_564034.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="SplashScreen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </SplashScreen>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Connectors\EEG\NeuroSky\thinkgear64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Connectors\EyeTracker\EyeTribeServer\EyeTribe.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Layout\assets\css\cs-skin-elastic.css" />
+    <Content Include="Layout\assets\css\experiment.css" />
+    <Content Include="Uwp\System.Runtime.WindowsRuntime.dll" />
+    <Resource Include="Uwp\System.Runtime.WindowsRuntime.xml" />
+    <Resource Include="Layout\assets\css\lib\chosen\chosen-sprite%402x.png" />
+    <Resource Include="Layout\assets\css\lib\chosen\chosen-sprite.png" />
+    <Content Include="Layout\assets\css\lib\chosen\chosen.css" />
+    <Content Include="Layout\assets\css\lib\chosen\chosen.min.css" />
+    <Content Include="Layout\assets\css\lib\datatable\buttons.bootstrap.min.css" />
+    <Content Include="Layout\assets\css\lib\datatable\buttons.dataTables.min.css" />
+    <Content Include="Layout\assets\css\lib\datatable\dataTables.bootstrap.min.css" />
+    <Content Include="Layout\assets\css\lib\vector-map\jqvmap.min.css" />
+    <Content Include="Layout\assets\css\neuro.css" />
+    <Content Include="Layout\assets\css\style.css" />
+    <Content Include="Layout\assets\fonts\icomoon\icomoon.svg" />
+    <Content Include="Layout\assets\fonts\icomoon\index.html" />
+    <Content Include="Layout\assets\fonts\themify-icons\demo-files\demo.css" />
+    <Content Include="Layout\assets\fonts\themify-icons\fonts\themify.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\ie7\ie7.css" />
+    <Content Include="Layout\assets\fonts\themify-icons\ie7\ie7.js" />
+    <Content Include="Layout\assets\fonts\themify-icons\index.html" />
+    <Resource Include="Layout\assets\fonts\themify-icons\readme.txt" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\agenda.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\alarm-clock.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\alert.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\align-center.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\align-justify.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\align-left.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\align-right.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\anchor.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\android.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\angle-double-down.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\angle-double-left.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\angle-double-right.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\angle-double-up.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\angle-down.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\angle-left.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\angle-right.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\angle-up.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\announcement.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\apple.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\archive.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\arrow-circle-down.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\arrow-circle-left.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\arrow-circle-right.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\arrow-circle-up.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\arrow-down.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\arrow-left.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\arrow-right.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\arrow-top-left.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\arrow-top-right.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\arrow-up.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\arrow.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\arrows-corner.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\arrows-horizontal.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\arrows-vertical.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\back-left.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\back-right.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\bag.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\bar-chart-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\bar-chart.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\basketball.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\bell.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\blackboard.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\bolt-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\bolt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\book.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\bookmark-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\bookmark.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\briefcase.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\brush-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\brush.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\calendar.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\camera.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\car.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\check-box.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\check.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\clip.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\clipboard.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\close.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\cloud-down.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\cloud-up.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\cloud.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\comment-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\comment.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\comments-smiley.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\comments.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\control-backward.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\control-eject.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\control-forward.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\control-pause.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\control-play.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\control-record.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\control-shuffle.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\control-skip-backward.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\control-skip-forward.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\control-stop.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\credit-card.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\crown.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\css3.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\cup.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\cut.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\dashboard.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\desktop.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\direction-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\direction.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\download.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\dribbble.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\dropbox-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\dropbox.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\drupal.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\email.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\envelope.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\eraser.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\exchange-vertical.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\export.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\eye.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\face-sad.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\face-smile.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\facebook.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\file.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\files.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\filter.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\flag-alt-2.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\flag-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\flag.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\flickr-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\flickr.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\folder.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\fullscreen.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\gallery.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\game.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\gift.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\github.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\google.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\hand-drag.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\hand-open.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\hand-point-down.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\hand-point-left.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\hand-point-right.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\hand-point-up.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\hand-stop.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\harddrive.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\harddrives.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\headphone-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\headphone.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\heart-broken.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\heart.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\help-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\help.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\home.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\html5.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\hummer.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\id-badge.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\image.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\import.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\infinite.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\info-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\info.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\ink-pen.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\instagram.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\Italic.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\joomla.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\jsfiddle.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\key.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layers-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layers.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-accordion-list.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-accordion-merged.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-accordion-separated.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-column2-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-column2.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-column3-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-column3.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-column4-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-column4.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-cta-btn-left.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-cta-btn-right.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-cta-center.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-cta-left.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-cta-right.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-grid2-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-grid2-thumb.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-grid2.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-grid3-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-grid3.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-grid4-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-grid4.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-line-solid.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-list-large-image.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-list-post.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-list-thumb-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-list-thumb.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-media-center-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-media-center.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-media-left-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-media-left.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-media-overlay-alt-2.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-media-overlay-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-media-overlay.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-media-right-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-media-right.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-menu-full.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-menu-separated.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-menu-v.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-menu.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-placeholder.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-sidebar-2.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-sidebar-left.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-sidebar-none.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-sidebar-right.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-slider-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-slider.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-tab-min.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-tab-v.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-tab-window.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-tab.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-width-default-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-width-default.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout-width-full.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\layout.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\light-bulb.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\line-dashed.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\line-dotted.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\line-double.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\link.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\linkedin.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\linux.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\list-ol.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\list.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\location-arrow.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\location-pin.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\lock.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\loop.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\magnet.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\map-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\map.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\marker-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\marker.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\medall-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\medall.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\menu-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\menu.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\microphone-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\microphone.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\microsoft-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\microsoft.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\minus.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\mobile.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\money.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\more-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\more.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\mouse-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\mouse.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\music-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\music.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\na.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\new-window.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\notepad.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\package.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\paint-bucket.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\paint-roller.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\palette.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\panel.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\paragraph.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\pencil-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\pencil-alt2.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\pencil.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\pie-chart.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\pin-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\pin.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\pin2.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\pinterest-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\pinterest.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\plug.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\plus.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\power-off.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\printer.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\pulse.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\quote-left.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\quote-right.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\receipt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\reddit.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\reload.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\rocket.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\rss-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\rss.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\ruler-alt-2.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\ruler-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\ruler-pencil.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\ruler.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\save-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\save.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\search.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\server.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\settings.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\share-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\share.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\sharethis-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\sharethis.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\shield.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\shift-left-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\shift-left.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\shift-right-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\shift-right.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\shine.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\shopping-cart-full.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\shopping-cart.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\shortcode.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\signal.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\skype.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\slice.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\smallcap.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\soundcloud.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\split-h.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\split-v-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\split-v.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\spray.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\stack-overflow.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\stamp.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\star.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\stats-down.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\stats-up.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\support.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\tablet.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\tag.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\target.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\text.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\themify-favicon-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\themify-favicon.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\themify-logo.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\thought.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\thumb-down.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\thumb-up.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\ticket.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\time.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\timer.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\trash.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\trello.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\truck.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\tumblr-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\tumblr.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\twitter-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\twitter.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\underline.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\unlink.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\unlock.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\upload.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\uppercase.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\user.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\vector.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\video-camera.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\video-clapper.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\view-grid.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\view-list-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\view-list.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\vimeo-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\vimeo.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\volume.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\wallet.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\wand.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\wheelchair.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\widget-alt.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\widget.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\widgetized.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\window.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\wordpress.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\world.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\write.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\yahoo.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\youtube.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\zip.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\zoom-in.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\SVG\zoom-out.svg" />
+    <Content Include="Layout\assets\fonts\themify-icons\themify-icons.css" />
+    <Resource Include="Layout\assets\images\icon.png" />
+    <Resource Include="Layout\assets\images\logo.png" />
+    <Resource Include="Layout\assets\images\preloader.gif" />
+    <Content Include="Layout\assets\js\dashboard\app.js" />
+    <Content Include="Layout\assets\js\dashboard\devices.js" />
+    <Content Include="Layout\assets\js\dashboard\engine.js" />
+    <Content Include="Layout\assets\js\dashboard\examinations.js" />
+    <Content Include="Layout\assets\js\dashboard\experiments.js" />
+    <Content Include="Layout\assets\js\dashboard\patients.js" />
+    <Content Include="Layout\assets\js\dashboard\stages.js" />
+    <Content Include="Layout\assets\js\experiment\emotions.js" />
+    <Content Include="Layout\assets\js\experiment\experiment.js" />
+    <Content Include="Layout\assets\js\experiment\eyetracking.js" />
+    <Content Include="Layout\assets\js\experiment\gazepoint.js" />
+    <Content Include="Layout\assets\js\experiment\voice.js" />
+    <Content Include="Layout\assets\js\lib\chosen\chosen.jquery.js" />
+    <Content Include="Layout\assets\js\lib\chosen\chosen.jquery.min.js" />
+    <Content Include="Layout\assets\js\lib\chosen\chosen.proto.js" />
+    <Content Include="Layout\assets\js\lib\chosen\chosen.proto.min.js" />
+    <Content Include="Layout\assets\js\lib\data-table\buttons.bootstrap.min.js" />
+    <Content Include="Layout\assets\js\lib\data-table\buttons.colVis.min.js" />
+    <Content Include="Layout\assets\js\lib\data-table\buttons.flash.min.js" />
+    <Content Include="Layout\assets\js\lib\data-table\buttons.html5.min.js" />
+    <Content Include="Layout\assets\js\lib\data-table\buttons.print.min.js" />
+    <Content Include="Layout\assets\js\lib\data-table\dataTables.bootstrap.min.js" />
+    <Content Include="Layout\assets\js\lib\data-table\dataTables.buttons.min.js" />
+    <Content Include="Layout\assets\js\lib\data-table\datatables.min.js" />
+    <Content Include="Layout\assets\js\lib\data-table\jquery-1.12.4.js" />
+    <Content Include="Layout\assets\js\lib\data-table\jquery.dataTables.min.js" />
+    <Content Include="Layout\assets\js\lib\data-table\jszip.min.js" />
+    <Content Include="Layout\assets\js\lib\data-table\pdfmake.min.js" />
+    <Content Include="Layout\assets\js\lib\data-table\vfs_fonts.js" />
+    <Content Include="Layout\assets\js\lib\gmap\gmapApi.js" />
+    <Content Include="Layout\assets\js\lib\gmap\gmaps.js" />
+    <Content Include="Layout\assets\js\lib\gmap\gmaps.min.js" />
+    <Content Include="Layout\assets\js\lib\jquery-mask\jquery.mask.min.js" />
+    <Content Include="Layout\assets\js\lib\theme.js" />
+    <Content Include="Layout\assets\js\lib\videoframe\VideoFrame.js" />
+    <Content Include="Layout\assets\js\lib\videoframe\VideoFrame.min.js" />
+    <Content Include="Layout\assets\js\shared\data.js" />
+    <Content Include="Layout\assets\js\shared\helpers.js" />
+    <Content Include="Layout\assets\js\shared\wsctrl.js" />
+    <Content Include="Layout\assets\stimulus\movie\FaceEmotionsStream.mp4" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide1.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide10.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide11.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide12.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide13.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide14.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide15.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide16.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide17.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide18.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide19.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide2.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide20.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide21.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide22.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide23.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide24.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide25.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide26.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide27.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide28.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide29.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide3.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide30.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide31.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide32.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide33.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide34.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide35.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide36.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide37.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide4.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide5.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide6.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide7.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide8.JPG" />
+    <Resource Include="Layout\assets\stimulus\voice\slide\Slide9.JPG" />
+    <Content Include="Layout\dashboard.html" />
+    <Content Include="Layout\experiment.html" />
+    <Resource Include="Connectors\EyeTracker\EyeTribeServer\third-party-license.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\OpenFace\packages\Tobii.EyeX.Client.1.8.504\build\Tobii.EyeX.Client.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\OpenFace\packages\Tobii.EyeX.Client.1.8.504\build\Tobii.EyeX.Client.targets'))" />
+    <Error Condition="!Exists('..\OpenFace\packages\NAudio.Lame.1.0.9\build\NAudio.Lame.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\OpenFace\packages\NAudio.Lame.1.0.9\build\NAudio.Lame.targets'))" />
+    <Error Condition="!Exists('..\OpenFace\packages\GoIO.SDK.1.0.6\build\GoIO.SDK.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\OpenFace\packages\GoIO.SDK.1.0.6\build\GoIO.SDK.targets'))" />
+    <Error Condition="!Exists('..\OpenFace\packages\GoIO.SDK.1.0.6\build\GoIO.SDK.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\OpenFace\packages\GoIO.SDK.1.0.6\build\GoIO.SDK.targets'))" />
+    <Error Condition="!Exists('..\OpenFace\packages\NAudio.Lame.1.0.9\build\NAudio.Lame.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\OpenFace\packages\NAudio.Lame.1.0.9\build\NAudio.Lame.targets'))" />
+    <Error Condition="!Exists('..\OpenFace\packages\Tobii.EyeX.Client.1.8.504\build\Tobii.EyeX.Client.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\OpenFace\packages\Tobii.EyeX.Client.1.8.504\build\Tobii.EyeX.Client.targets'))" />
+  </Target>
+  <Import Project="..\OpenFace\packages\Tobii.EyeX.Client.1.8.504\build\Tobii.EyeX.Client.targets" Condition="Exists('..\OpenFace\packages\Tobii.EyeX.Client.1.8.504\build\Tobii.EyeX.Client.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /yr "..\Leap\LeapSDK\lib\x64\LeapC.dll" "$(TargetDir)"
+xcopy "$(ProjectDir)\ModPredClass\*.*" "$(TargetDir)" /Y /I /E
+xcopy "$(ProjectDir)\Layout\*.*" "$(TargetDir)\Layout" /Y /I /E
+xcopy "$(ProjectDir)..\OpenCV\*.*" "$(TargetDir)" /Y /I /E</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\OpenFace\packages\NAudio.Lame.1.0.9\build\NAudio.Lame.targets" Condition="Exists('..\OpenFace\packages\NAudio.Lame.1.0.9\build\NAudio.Lame.targets')" />
+  <Import Project="..\OpenFace\packages\GoIO.SDK.1.0.6\build\GoIO.SDK.targets" Condition="Exists('..\OpenFace\packages\GoIO.SDK.1.0.6\build\GoIO.SDK.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\OpenFace\packages\GoIO.SDK.1.0.6\build\GoIO.SDK.targets" Condition="Exists('..\OpenFace\packages\GoIO.SDK.1.0.6\build\GoIO.SDK.targets')" />
+  <Import Project="..\OpenFace\packages\NAudio.Lame.1.0.9\build\NAudio.Lame.targets" Condition="Exists('..\OpenFace\packages\NAudio.Lame.1.0.9\build\NAudio.Lame.targets')" />
+  <Import Project="..\OpenFace\packages\Tobii.EyeX.Client.1.8.504\build\Tobii.EyeX.Client.targets" Condition="Exists('..\OpenFace\packages\Tobii.EyeX.Client.1.8.504\build\Tobii.EyeX.Client.targets')" />
+</Project>

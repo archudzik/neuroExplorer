@@ -1,0 +1,69 @@
+﻿<Window x:Class="NeuroExplorer.Connectors.EyeTracker.UI.EyeTribeUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Eye tracker controller" Height="Auto" Width="Auto" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:TrackBox="clr-namespace:EyeTribe.Controls.TrackBox;assembly=EyeTribe.Controls"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="NoResize" Topmost="True">
+    <Grid Margin="32">
+        <materialDesign:Card Padding="32" Grid.Row="1">
+            <Grid VerticalAlignment="Stretch" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32" />
+                    <RowDefinition Height="48" />
+                    <RowDefinition Height="32" />
+                    <RowDefinition Height="48" />
+                    <RowDefinition Height="32" />
+                    <RowDefinition Height="48" />
+                    <RowDefinition Height="48" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="500" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <TrackBox:TrackBoxStatus Grid.Column="0" Grid.RowSpan="7" Name="trackingStatus" Margin="0,0,32,0"/>
+                
+                <!--
+    
+                <Label Grid.Column="1" Grid.Row="0" Padding="0,4,0,4">Select frequency</Label>
+                <ComboBox Name="frequency" Style="{DynamicResource MaterialDesignComboBox}" Grid.Column="1" Grid.Row="1" Margin="0,0,0,16" Text="Select frequency" SelectedIndex="1">
+                    <ComboBoxItem Content="30 Hz"/>
+                    <ComboBoxItem Content="60 Hz"/>
+                </ComboBox>
+                
+                -->
+
+                <Label Grid.Column="1" Grid.Row="0" Margin="0,0,0,0" Padding="0,4,0,4">Select screen</Label>
+                <ComboBox x:Name="screens" Style="{DynamicResource MaterialDesignComboBox}" Grid.Column="1" Grid.Row="1" Margin="0,0,0,16">
+                </ComboBox>
+
+                <Label Grid.Column="1" Grid.Row="2" Margin="0,0,0,0" Padding="0,4,0,4">Select number of calibration points</Label>
+                <ComboBox x:Name="calibrationPoints" Style="{DynamicResource MaterialDesignComboBox}" Grid.Column="1" Grid.Row="3" Margin="0,0,0,16" SelectedIndex="0">
+                    <ComboBoxItem Content="9"/>
+                    <ComboBoxItem Content="12"/>
+                    <ComboBoxItem Content="16"/>
+                </ComboBox>
+
+                <Label Grid.Column="1" Grid.Row="4" Margin="0,0,0,0" Padding="0,4,0,4">Calibration status</Label>
+                <materialDesign:RatingBar Name="rating" Orientation="Horizontal" Foreground="Gold" Grid.Column="1" Grid.Row="5" />
+
+                <Button Name="calibrate" Content="Calibrate" Style="{DynamicResource MaterialDesignFlatButton}" Grid.Column="1" Grid.Row="6" Margin="0,16,0,0" />
+
+                <materialDesign:Snackbar IsActive="False" x:Name="messageSnackbar" Grid.Column="0" Grid.Row="6">
+                    <materialDesign:SnackbarMessage x:Name="messageSnackbarContent" Content="" ActionContent="OK" ActionClick="SnackbarMessage_ActionClick" />
+                </materialDesign:Snackbar>
+
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</Window>

@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elliatab.Leap.Wpf", "Elliatab.Leap.Wpf\Elliatab.Leap.Wpf.csproj", "{E577B660-50AF-47F7-A2F0-996F0AC6AD49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elliatab.Leap.Sample", "Elliatab.Leap.Sample\Elliatab.Leap.Sample.csproj", "{96D6C3E6-A8DE-4DE4-866F-12342A3CADB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elliatab.Leap.Wpf.Tests", "Tests\Elliatab.Leap.Wpf.Tests\Elliatab.Leap.Wpf.Tests.csproj", "{9063B361-F3AB-479C-A754-FCB5FC35A66A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E577B660-50AF-47F7-A2F0-996F0AC6AD49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E577B660-50AF-47F7-A2F0-996F0AC6AD49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E577B660-50AF-47F7-A2F0-996F0AC6AD49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E577B660-50AF-47F7-A2F0-996F0AC6AD49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D6C3E6-A8DE-4DE4-866F-12342A3CADB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D6C3E6-A8DE-4DE4-866F-12342A3CADB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D6C3E6-A8DE-4DE4-866F-12342A3CADB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D6C3E6-A8DE-4DE4-866F-12342A3CADB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9063B361-F3AB-479C-A754-FCB5FC35A66A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9063B361-F3AB-479C-A754-FCB5FC35A66A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9063B361-F3AB-479C-A754-FCB5FC35A66A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9063B361-F3AB-479C-A754-FCB5FC35A66A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

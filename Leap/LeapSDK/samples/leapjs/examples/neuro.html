@@ -1,0 +1,63 @@
+<html>
+<head>
+  <title>Bone Hands - Leap</title>
+  <script src="lib/three.69.js"></script>
+  <script src="../leap-0.6.4.neuro.js"></script>
+  <script src="lib/leap-plugins-0.1.6.js"></script>
+    <script src="lib/leap.bone-hand.js"></script>
+    <script src="lib/OrbitControls.js"></script>
+      <style>
+    body {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+
+</body>
+
+<script>
+
+  Leap.loop()
+    .use('boneHand', {
+      targetEl: document.body,
+      arm: false,
+      opacity: 0.8
+    });
+
+
+
+  // Set up scene
+
+  var scene    = Leap.loopController.plugins.boneHand.scene;
+  var camera   = Leap.loopController.plugins.boneHand.camera;
+  var renderer = Leap.loopController.plugins.boneHand.renderer;
+
+  var plane = new THREE.Mesh();
+
+  plane.scale.set(2,2,2);
+  plane.position.set(0,200,-100);
+  plane.receiveShadow = true;
+  scene.add(plane);
+
+  camera.lookAt( plane.position );
+
+  var axisHelper = new THREE.AxisHelper( 100 );
+  scene.add( axisHelper );
+
+  var controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+document.querySelector('canvas').style.display = 'block';
+  Leap.loopController.on('handFound', function(hand) {
+  }).on('handLost', function(hand){
+
+  });
+
+  //document.getElementById('view-source').href = "view-source:" + window.location.href
+
+
+</script>
+
+</html>

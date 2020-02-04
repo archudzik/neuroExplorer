@@ -1,0 +1,34 @@
+﻿<Window x:Class="NeuroExplorer.Connectors.Microphone.UI.MicrophoneSelection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NeuroExplorer.Connectors.Microphone.UI"
+        mc:Ignorable="d"
+        Title="Microphone selection" Height="Auto" Width="320" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="NoResize" Topmost="True">
+    <Grid Margin="32">
+        <materialDesign:Card Padding="32" Grid.Row="1">
+            <Grid Margin="1,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Margin="0,0,0,0" Padding="0,4,0,4">Select input device</Label>
+                <ComboBox x:Name="devices" Style="{DynamicResource MaterialDesignComboBox}" Grid.Row="1" Margin="0,16,0,0"></ComboBox>
+                <Button x:Name="select" Content="Select" Grid.Row="3" Style="{DynamicResource MaterialDesignFlatButton}" Margin="0,32,0,0" Click="Select_Click" />
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</Window>

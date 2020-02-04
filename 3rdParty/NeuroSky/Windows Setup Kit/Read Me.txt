@@ -1,0 +1,12 @@
+How to utilize this Setup Kit to get started
+============================================
+
+1. Carefully read the MWM2 Quick Start Guide (QSG) and follow the step-by-step instructions to pair your MindWave Mobile 2 headset with your computer.
+
+2. IMPORTANT!: Double-click the "MWM Tutorial.exe" (located in the "MindWave Mobile Tutorial" folder) to run the Tutorial app, and then follow the on-screen instruction to set up the headset and set it into the correct mode according to your region. (NOTE: Whenever you travel to a different region, remember to use this Tutorial app again to reconfigure the headset.)
+
+3. Besides the MindWave Mobile Tutorial app, there are many applications available on the NeuroSky Online Store (https://store.neurosky.com/collections/apps), but many of them will require the ThinkGear Connector (TGC) in order to be able to communicate with the MindWave Mobile 2 headset.  Therefore, be sure to run the "ThinkGear Connector.exe" in the "ThinkGear Connector" folder to install TGC.
+
+4. If you would like to obtain more information about NeuroSky technology and how the MindWave Mobile 2 headset works, please feel free to read the MWM2 User Guide in this Setup Kit.
+
+And most of all, enjoy!

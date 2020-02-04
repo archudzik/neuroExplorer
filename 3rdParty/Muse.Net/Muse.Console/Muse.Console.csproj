@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net462</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Shell.Routing" Version="1.0.0" />
+    <ProjectReference Include="..\Muse.Net\Muse.Net.csproj" />
+  </ItemGroup>
+
+</Project>

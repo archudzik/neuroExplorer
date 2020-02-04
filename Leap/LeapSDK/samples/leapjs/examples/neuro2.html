@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>WebSocket Test</title>
+<script language="javascript" type="text/javascript">
+
+  var wsUri = "ws://127.0.0.1:7654/openface";
+  var counter = 0;
+  var last = 0;
+  var output;
+  var fps;
+
+  function init() {
+    output = document.getElementById("output");
+    fps = document.getElementById("fps");
+    testWebSocket();
+  }
+
+  function testWebSocket() {
+    websocket = new WebSocket(wsUri);
+    websocket.onopen = function (evt) { onOpen(evt) };
+    websocket.onclose = function (evt) { onClose(evt) };
+    websocket.onmessage = function (evt) { onMessage(evt) };
+    websocket.onerror = function (evt) { onError(evt) };
+  }
+
+  function onOpen(evt) {
+    writeToScreen("CONNECTED");
+    doSend("WebSocket rocks");
+  }
+
+  function onClose(evt) {
+    writeToScreen("DISCONNECTED");
+  }
+
+  function onMessage(evt) {
+    counter++;
+    writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data + '</span>');
+  }
+
+  function onError(evt) {
+    writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data);
+  }
+
+  function doSend(message) {
+    writeToScreen("SENT: " + message);
+    websocket.send(message);
+  }
+
+  function writeToScreen(message) {
+    output.innerHTML = message;
+  }
+
+  window.addEventListener("load", init, false);
+
+  setInterval(function () {
+    var now = counter - last;
+    fps.innerHTML = now;
+    last = counter;
+  }, 1000);
+
+</script>
+
+<h2>WebSocket Test</h2>
+
+<p id="fps"></p>
+<p id="output"></p>
+<p><img id="image"></p>

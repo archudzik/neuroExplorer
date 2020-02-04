@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<head></head>
+<meta charset="utf-8" />
+<title>WebSocket Test</title>
+</head>
+
+<body>
+    <h2>WebSocket Test</h2>
+
+    <p id="fps"></p>
+    <p id="output"></p>
+    <p><img id="image"></p>
+    <p><canvas id="canvas"></p>
+
+    <script language="javascript" type="text/javascript">
+        var wsUri = "ws://127.0.0.1:7654/mic";
+        var socket = new WebSocket(wsUri);
+        var canvas = document.getElementById('canvas');
+
+        var width = 640;
+        var height = 480;
+
+        canvas.width = width;
+        canvas.height = height;
+
+        var canvasWidth = canvas.width;
+        var canvasHeight = canvas.height;
+        var ctx = canvas.getContext('2d');
+        var canvasCtx = ctx;
+        var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+
+        function getGreenToRed(percent) {
+            if (percent === 100) {
+                percent = 99
+            }
+            var r, g, b;
+
+            if (percent < 50) {
+                r = Math.floor(255 * (percent / 50));
+                g = 255;
+
+            } else {
+                r = 255;
+                g = Math.floor(255 * ((50 - percent % 50) / 50));
+            }
+            b = 0;
+
+            return "rgb(" + r + "," + g + "," + b + ")";
+        }
+
+        var drawVisual = requestAnimationFrame(draw);
+        var currentValues = [];
+
+        function draw() {
+            drawVisual = requestAnimationFrame(draw);
+            var bufferLength = currentValues.length;
+            var dataArray = currentValues;
+
+            canvasCtx.fillStyle = 'rgb(255, 255, 255)';
+            canvasCtx.fillRect(0, 0, canvasWidth, canvasHeight);
+            canvasCtx.lineTo(canvas.width, canvas.height / 2);
+            canvasCtx.stroke();
+
+            var barMargin = 5;
+            var barWidth = canvasWidth / (bufferLength);
+            barWidth -= barMargin;
+            var barHeight;
+            var x = 0;
+
+            for (var i = 0; i < bufferLength; i++) {
+                barHeight = dataArray[i] * 5;
+                var percentage = (barHeight * 100 / canvasHeight);
+                canvasCtx.fillStyle = getGreenToRed(percentage);
+                canvasCtx.fillRect(x, canvasHeight - barHeight / 2, barWidth, barHeight);
+                x += barWidth + barMargin;
+            }
+        }
+
+        try {
+
+            socket.onopen = function () {
+                document.getElementById('output').style.backgroundColor = '#40ff40';
+                document.getElementById('output').textContent = 'Connection opened';
+            }
+
+            socket.onmessage = function (msg) {
+                var jData = JSON.parse(msg.data);
+                if(typeof jData.spec !== "undefined"){
+                    currentValues = jData.spec;
+                }
+                if (typeof jData.peak !== "undefined") {
+                    document.getElementById('output').textContent = jData.peak;
+                }
+            }
+
+            socket.onclose = function () {
+                document.getElementById('output').style.backgroundColor = '#ff4040';
+                document.getElementById('output').textContent = 'Connection closed';
+            }
+        } catch (exception) {
+            alert('Error:' + exception);
+        }
+
+    </script>
+</body>
+
+</html>
