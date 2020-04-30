@@ -15,7 +15,7 @@
     "circular-buffer": "^1.0.2",
     "epoch-charting": "^0.8.4",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "jquery-match-height": "^0.7.2",
     "lodash": "^4.17.11",
     "mathjs": "^5.7.0",
