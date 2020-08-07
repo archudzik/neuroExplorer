@@ -253,7 +253,7 @@
     <Compile Include="Connectors\PulseOximetry\Cms50eConnector.cs" />
     <Compile Include="Connectors\PulseOximetry\Cms50ewConnector.cs" />
     <Compile Include="Const.cs" />
-    <Compile Include="MainController\NeuroController.cs" />
+    <Compile Include="MainController\MainController.cs" />
     <Compile Include="Helpers\AsyncStreamReader.cs" />
     <Compile Include="Helpers\MetroManager.cs" />
     <Compile Include="Helpers\SerialPortWrapper\SerialDataEventArgs.cs" />

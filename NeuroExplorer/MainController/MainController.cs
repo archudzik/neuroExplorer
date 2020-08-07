@@ -21,7 +21,7 @@ using System.Windows;
 namespace NeuroExplorer.MainController
 {
 
-    class NeuroController
+    class MainController
     {
         IDictionary<string, IWebSocketPropagator> connectors = new Dictionary<string, IWebSocketPropagator>();
         WebSocketConnector webSocket = new WebSocketConnector();
@@ -33,7 +33,7 @@ namespace NeuroExplorer.MainController
         GeoCoordinateWatcher watcher;
         GeoPosition<GeoCoordinate> currentPosition;
 
-        public NeuroController()
+        public MainController()
         {
             webSocket.Connect("ws://127.0.0.1:7654");
             webSocket.RegisterEndpoint("/cmd", new List<string>());
@@ -173,7 +173,7 @@ namespace NeuroExplorer.MainController
                             }
 
                             examinationId = obj["value"]["examinationId"].ToString();
-                            outputFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "NeuroExplorer", "Examinations", examinationId);
+                            outputFolder = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "NeuroExplorer_Data", "Examinations", examinationId);
                             Directory.CreateDirectory(outputFolder);
 
                             string filePath = Path.Combine(outputFolder, metadataFilename);
@@ -222,7 +222,7 @@ namespace NeuroExplorer.MainController
                     break;
 
                 case "folder":
-                    string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "NeuroExplorer", "Examinations", obj["value"].ToString());
+                    string path = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "NeuroExplorer_Data", "Examinations", obj["value"].ToString());
                     if (Directory.Exists(path))
                     {
                         Application.Current.Dispatcher.BeginInvoke(new Action(() =>
@@ -253,7 +253,7 @@ namespace NeuroExplorer.MainController
             }
             Application.Current.Dispatcher.BeginInvoke(new Action(() =>
             {
-                outputFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "NeuroExplorer", "Examinations", examinationId);
+                outputFolder = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "NeuroExplorer_Data", "Examinations", examinationId);
                 Directory.CreateDirectory(outputFolder);
                 logStreamer.Init(Path.Combine(outputFolder, logStreamerFilename));
                 foreach (KeyValuePair<string, IWebSocketPropagator> connector in connectors)
@@ -279,13 +279,13 @@ namespace NeuroExplorer.MainController
         {
             JObject patients = new JObject();
 
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "NeuroExplorer", "Examinations");
+            string path = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "NeuroExplorer_Data", "Examinations");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
 
-            string[] directories = Directory.GetDirectories(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "NeuroExplorer", "Examinations"));
+            string[] directories = Directory.GetDirectories(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "NeuroExplorer_Data", "Examinations"));
             foreach (string dir in directories)
             {
                 string metaPath = Path.Combine(dir, metadataFilename);

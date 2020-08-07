@@ -12,13 +12,13 @@ namespace NeuroExplorer
 
         private Process dashboard;
         private Process experiment;
-        private NeuroController controller;
+        private MainController.MainController controller;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            controller = new NeuroController();
+            controller = new MainController.MainController();
             Closing += controller.Closing;
 
             dashboard = StartViewer("dashboard", false);
