@@ -11,7 +11,8 @@ Neuro Explorer strongly relies on one of the best research open-source projects,
 
 The researcher can conduct every experiment with a chosen number of devices. The current list supports eight sensors: 
 * Eye Tracker (TheEyeTribe, owned by Facebook)
-* EEG (NeuroSky), GSR (ThoughtStream)
+* EEG (NeuroSky)
+* GSR (ThoughtStream)
 * Leap Motion
 * Microphone (every audio interface)
 * Face Analysis (based on the video camera)
