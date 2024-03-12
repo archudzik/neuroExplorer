@@ -1,9 +1,12 @@
 # Neuro Explorer 0.1.0 (beta)
+
+![Neuro Explorer](https://nd.pja.edu.pl/project/neuro-explorer/static/github/logo.png)
+
+
+
 ## Universal system of data acquisition for digital biomarkers
 
 Neuro Explorer is a system, which goal is the data acquisition for digital biomarkers of neurodegenerative diseases that would aggregate data from various biosensors.
-
-![Neuro Explorer](https://nd.pja.edu.pl/project/neuro-explorer/static/github/logo.png)
 
 Neuro Explorer strongly relies on one of the best research open-source projects, the OpenFace software (https://github.com/TadasBaltrusaitis/OpenFace). OpenFace is the ﬁrst toolkit capable of facial landmark detection, head pose estimation, facial action unit recognition, and eye-gaze estimation with available source code for both running and training the models. Our goal is to extend the capabilities of that project with additional devices.
 
