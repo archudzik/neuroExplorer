@@ -53,3 +53,11 @@ Academic or non-profit organization non-commercial research use only.
 You have to respect OpenFace (OpenFace/Copyright.txt), dlib, OpenBLAS, and OpenCV licenses.
 
 Furthermore you have to respect the licenses of the datasets used for model training - https://github.com/TadasBaltrusaitis/OpenFace/wiki/Datasets
+
+## Preserved legacy components
+
+This is a historical research toolkit. The repository deliberately retains bundled SDKs, sample assets, OpenFace sources, and other third-party components because some of the original distributions may no longer be easy to obtain. No dependency or binary migration is required to browse the repository.
+
+The repository root is **not** covered by a single MIT license. Different components have different authors, licenses and use restrictions. In particular, consult `OpenFace/OpenFace-license.txt`, the vendor SDK terms and the license notices within `3rdParty/` and `Leap/` before reuse or redistribution. The existing README's non-commercial research notice should not be interpreted as a grant of additional rights over bundled third-party material.
+
+The build instructions reflect the original Visual Studio 2017 environment; newer toolchains and hardware/SDK availability have not been verified. Retaining these components is intentional, not an indication that they are supported on current systems.
